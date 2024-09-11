@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const newDocument = await prisma.Document.create({
+    const newDocument = await prisma.document.create({
       data: {
         title,
         type,

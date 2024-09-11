@@ -7,7 +7,7 @@ import { CiTwitter } from "react-icons/ci";
 export default function page() {
   return (
     <>
-      <nav className="bg-gray-200 px-5">
+      <nav className="bg-card border px-5">
         <div className="flex justify-between items-center">
           <div>
             <div className="p-4">

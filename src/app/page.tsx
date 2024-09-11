@@ -5,7 +5,7 @@ import Footer from '@/(components)/footer/page'
 export default async function page() {
   return (
       <>
-      <div>
+      <div className='min-h-screen'>
         <Sidebar/>
       </div>
       <Footer/>

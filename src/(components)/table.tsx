@@ -1,7 +1,5 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import homeMap from "../../public/assets/images/homeMap.png";
-import Image from "next/image";
 import { User } from "@/types/type";
 
 export default function Table() {
@@ -48,7 +46,7 @@ export default function Table() {
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 p-4">
-      <div className="overflow-x-auto w-full lg:w-1/2">
+      <div className="overflow-x-auto w-full">
         <table className="min-w-full divide-y divide-gray-200 shadow-md overflow-hidden sm:rounded-lg">
           <thead className="bg-purple-500">
             <tr className="text-left text-white uppercase">
