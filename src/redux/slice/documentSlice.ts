@@ -27,20 +27,6 @@ export const createDocument = createAsyncThunk(
   }
 );
 
-// export const createDocument = createAsyncThunk(
-//   'documents/createDocument',
-//   async ({ title, type, date, description, fileUrl }: Omit<Document, 'id'>) => {
-//     const response = await fetch('/api/createDocuments', {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify({ title, type, date, description, fileUrl }),
-//     });
-//     const data = await response.json();
-//     if (!response.ok) throw new Error(data.error || 'Failed to create document');
-//     return data;
-//   }
-// );
-
 const documentSlice = createSlice({
   name: 'documents',
   initialState,
