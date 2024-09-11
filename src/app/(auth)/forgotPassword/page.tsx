@@ -16,6 +16,9 @@ const ForgotPassword = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
+      <h2 className="flex justify-center text-2xl font-extrabold text-3xl">
+          swift<span className="text-purple">CRM</span>
+        </h2>
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
           Forgot your password?
         </h2>
@@ -32,7 +35,7 @@ const ForgotPassword = () => {
                 required
                 value={email}
                 onChange={(e) => dispatch(setEmail(e.target.value))}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-4 py-4 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 placeholder="Email Address"
               />
             </div>
@@ -46,8 +49,8 @@ const ForgotPassword = () => {
           <div>
             <button
               type="submit"
-              className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white ${
-                isLoading ? "bg-gray-400" : "bg-indigo-600 hover:bg-indigo-700"
+              className={`group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-medium rounded-md text-white ${
+                isLoading ? "bg-gray-400" : "bg-purple hover:bg-purple"
               } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`}
               disabled={isLoading}
             >

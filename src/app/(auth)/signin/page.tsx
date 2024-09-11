@@ -5,12 +5,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { RootState } from "@/redux/store";
+import Google from "../../../../public/assets/images/google.png"
+import { FaGoogle } from "react-icons/fa";
 import {
   setEmail,
   setPassword,
   setError,
   setIsLoading,
 } from "@/redux/slice/authSlice";
+import Image from "next/image";
 
 const SignIn = () => {
   const dispatch = useDispatch();
@@ -54,7 +57,6 @@ const SignIn = () => {
       if (response?.error) {
         throw new Error(response.error);
       }
-
       router.push("/");
     } catch (error: any) {
       dispatch(setError(error.message || "Login failed"));
@@ -67,6 +69,9 @@ const SignIn = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
+        <h2 className="flex justify-center text-2xl font-extrabold text-3xl">
+          swift<span className="text-purple">CRM</span>
+        </h2>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Sign in to your account
           </h2>
@@ -78,8 +83,13 @@ const SignIn = () => {
               <button
                 type="button"
                 onClick={handleSignInWithGoogle}
-                className="group relative mb-3 w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="group relative mb-3  w-full flex justify-center py-4 px-4 border border-transparent text-lg font-medium rounded-md text-white bg-purple hover:bg-purple focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
+                <Image
+                src={Google}
+                width={30}
+                alt="mr-4"
+                />
                 Continue with Google
               </button>
             </div>
@@ -95,7 +105,7 @@ const SignIn = () => {
                 required
                 value={email}
                 onChange={handleChange}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 mb-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-4 py-4 mb-3 border my-3 border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
               />
             </div>
@@ -111,7 +121,7 @@ const SignIn = () => {
                 required
                 value={password}
                 onChange={handleChange}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-4 py-4 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
               />
             </div>
@@ -148,8 +158,8 @@ const SignIn = () => {
           <div>
             <button
               type="submit"
-              className={`relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white ${
-                isLoading ? "bg-gray-400" : "bg-indigo-600 hover:bg-indigo-700"
+              className={`relative w-full flex justify-center px-4 py-4 border border-transparent text-lg font-medium rounded-md text-white ${
+                isLoading ? "bg-gray-400" : "bg-purple"
               } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`}
               disabled={isLoading}
             >
@@ -170,7 +180,7 @@ const SignIn = () => {
               >
                 Already have an account?
                 <Link
-                  href="/auth/signup"
+                  href="signup"
                   className="font-medium text-indigo-600 hover:text-indigo-500"
                 >
                   Sign up now

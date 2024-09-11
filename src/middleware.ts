@@ -6,12 +6,7 @@ export function middleware(req: NextRequest) {
     req.cookies.get("next-auth.session-token") ||
     req.cookies.get("__Secure-next-auth.session-token");
 
-  const publicPaths = [
-    "/signin",
-    "/signup",
-    "/forgotPassword",
-    "/resetPassword",
-  ];
+  const publicPaths = ["/signin", "/signup", "/forgotPassword", "/resetPassword"];
   const protectedPaths = ["/dashboard"];
 
   const isPublicPath = publicPaths.some((path) =>
@@ -20,11 +15,12 @@ export function middleware(req: NextRequest) {
   const isProtectedPath = protectedPaths.some((path) =>
     req.nextUrl.pathname.startsWith(path)
   );
-
   if (!token && isProtectedPath) {
-    const signInUrl = new URL("/signin", req.url);
-    signInUrl.searchParams.set("redirectTo", req.nextUrl.pathname);
-    return NextResponse.redirect(signInUrl);
+    if (req.nextUrl.pathname !== "/signin") {
+      const signInUrl = new URL("/signin", req.url);
+      signInUrl.searchParams.set("redirectTo", req.nextUrl.pathname);
+      return NextResponse.redirect(signInUrl);
+    }
   }
 
   return NextResponse.next();

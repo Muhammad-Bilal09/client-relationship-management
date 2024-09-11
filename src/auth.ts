@@ -42,6 +42,9 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       },
     }),
   ],
+  pages: {
+    signIn: '/signin'
+  },
   session: {
     strategy: "jwt",
   },
@@ -70,11 +73,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       return session;
     },
     async redirect({ url, baseUrl }) {
-     
-      if (url.startsWith(baseUrl)) {
-        return url;
-      }
-      return baseUrl + '/dashboard'; 
+      return url.startsWith(baseUrl) ? url : baseUrl;
     },
   },
 });
