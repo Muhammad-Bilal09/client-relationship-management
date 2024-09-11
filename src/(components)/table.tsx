@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from "react";
 import homeMap from "../../public/assets/images/homeMap.png";
 import Image from "next/image";
@@ -83,15 +84,6 @@ export default function Table() {
             ))}
           </tbody>
         </table>
-      </div>
-
-      <div className="w-full lg:mt-12 lg:w-1/2">
-        <Image
-          src={homeMap}
-          alt="World Sales Map"
-          layout="responsive"
-          className="w-full lg:w-[233px] lg:h-[403px] bg-card border h-auto"
-        />
       </div>
     </div>
   );
