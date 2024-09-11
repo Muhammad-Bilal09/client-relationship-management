@@ -1,4 +1,3 @@
-"use client"
 import React from "react";
 import UserHeader from "@/(components)/UserHeader";
 import GraphsSection from "@/(components)/GraphsSection";
