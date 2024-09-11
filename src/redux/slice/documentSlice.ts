@@ -17,7 +17,7 @@ export const fetchDocuments = createAsyncThunk('documents/fetchDocuments', async
 export const createDocument = createAsyncThunk(
   'documents/createDocument',
   async ({ title, type, date, description, fileUrl }: Omit<Document, 'id'>) => {
-    const response = await fetch('/api/documents', {
+    const response = await fetch('/api/createDocuments', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title, type, date, description, fileUrl }),
