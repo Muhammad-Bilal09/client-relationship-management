@@ -60,7 +60,7 @@ export default function Table() {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {users.map((user, index) => (
+            {users?.map((user, index) => (
               <tr key={index} className="text-gray-600">
                 <td className="flex items-center py-4 px-6 whitespace-nowrap">
                   <input type="checkbox" className="mx-1" />

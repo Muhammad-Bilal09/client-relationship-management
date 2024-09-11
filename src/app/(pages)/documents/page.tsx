@@ -113,7 +113,7 @@ export default function CreateDocumentPage() {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {documents.map((document: any) => (
+              {documents?.map((document: any) => (
                 <tr key={document.id} className="text-gray-600">
                   <td className="py-4 px-6">{document.title}</td>
                   <td className="py-4 px-6">{document.type}</td>

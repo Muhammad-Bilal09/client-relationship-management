@@ -51,7 +51,7 @@ const Page: React.FC = () => {
           >
             All
           </button>
-          {categories.map((category) => (
+          {categories?.map((category) => (
             <button
               key={category}
               onClick={() => handleCategoryChange(category)}
@@ -64,7 +64,7 @@ const Page: React.FC = () => {
       </div>
 
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-2 place-self-center">
-        {filteredItems.map((item) => (
+        {filteredItems?.map((item) => (
           <div
             key={item.id}
             className="relative lg:w-[308px] lg:h-[313px] shadow-md mt-5 rounded-[19.67px] border-5 p-5 overflow-hidden group"

@@ -69,7 +69,7 @@ const CartItemsTable: React.FC = () => {
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-200">
-          {cart.map((item) => (
+          {cart?.map((item) => (
             <tr key={item.id} className="text-sm">
               <td className="px-4 py-2 whitespace-nowrap">
                 <img className="w-16 md:w-24 lg:w-32 md:h-24 lg:h-32" src={item.image} alt="Item Image" />
