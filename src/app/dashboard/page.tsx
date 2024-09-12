@@ -46,12 +46,14 @@ export default function Page() {
     setEcommerceDropdown(!ecommerceDropdown);
   };
 
+  
 
   const handleLogout = async () => {
     const result = await dispatch(logoutUser());
 
     if (logoutUser.fulfilled.match(result)) {
       router.push('/signin');  
+toast("user logout successfully")
     } else {
       toast(result.error?.message || 'Error logging out');
     }

@@ -11,27 +11,30 @@ export default function Dashboard() {
   return (
     <>
       <UserHeader />
-      <div className="p-4 lg:ml-28 flex flex-col lg:flex-row">
-        <div className="flex-1 lg:pr-5">
+      <div className="p-4 lg:ml-28 flex flex-col lg:flex-row lg:space-x-5">
+        <div className="flex-1 lg:w-2/3">
           <GraphsSection />
           <LineCharts />
         </div>
-        <div className="mt-4 lg:mt-0 lg:ml-40 lg:flex-1">
+        <div className="mt-4 lg:mt-0 lg:w-1/3">
           <BestSellingProducts />
         </div>
       </div>
-      <div className="p-4 flex flex-col lg:flex-row lg:ml-28">
-        <div className="flex-1 lg:pr-5">
+      <div className="p-4 lg:ml-28 flex flex-col lg:flex-row lg:space-x-5">
+        <div className="flex-1 lg:w-2/3">
           <Table />
         </div>
-        <div className="mt-4 border bg-card lg:mt-0 lg:flex-1">
-          <p className='p-4'>city order Statistic</p>
-          <hr className='my-2' />
-          <Image
-            src={homeMap}
-            alt="Home Map"
-            className="w-full h-auto"
-          />
+        <div className="mt-4 lg:mt-0 lg:w-1/3 border bg-card flex flex-col items-center">
+          <p className='p-4 text-lg font-semibold'>City Order Statistics</p>
+          <hr className='my-2 w-full' />
+          <div className="w-full flex justify-center">
+            <Image
+              src={homeMap}
+              alt="Home Map"
+              className="w-full h-auto max-w-full"
+              layout="responsive"
+            />
+          </div>
         </div>
       </div>
     </>

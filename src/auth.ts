@@ -74,6 +74,6 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
     },
     async redirect({ url, baseUrl }) {
       return url.startsWith(baseUrl) ? url : baseUrl;
-    },
+    },    
   },
 });
