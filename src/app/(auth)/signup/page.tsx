@@ -59,7 +59,7 @@ const SignUp = () => {
         }
       );
       if (response.status === 201) {
-        router.push("/sidebar");
+        router.push("/dashboard");
       }
     } catch (error: any) {
       console.error("Error during registration:", error);
