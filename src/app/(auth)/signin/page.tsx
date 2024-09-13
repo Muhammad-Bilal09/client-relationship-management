@@ -1,5 +1,5 @@
 "use client";
-import React, from "react";
+import React from "react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { signIn, useSession } from "next-auth/react";
@@ -19,6 +19,7 @@ const SignIn = () => {
   const { email, password, error, isLoading } = useSelector(
     (state: RootState) => state.auth
   );
+  const { data: session, status } = useSession();
   const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
