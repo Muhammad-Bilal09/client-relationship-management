@@ -141,7 +141,7 @@ const DailySalesChart: React.FC = () => {
   `;
 
   return (
-    <div style={{ width: "600px", height: "400px" }}>
+    <div className="lg:w-[600px] lg:h-[400px]">
       <Line data={data} options={options} />
     </div>
   );

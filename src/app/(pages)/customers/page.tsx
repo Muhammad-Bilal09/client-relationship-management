@@ -16,7 +16,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="p-4">
+      <div>
         <div className="flex flex-col md:flex-row justify-between">
           <div>
             <h1 className="font-bold text-xl">Customers</h1>
@@ -69,7 +69,7 @@ export default function Page() {
           />
         </div>
 
-        <div className="bg-card rounded-lg p-4 border flex flex-col sm:flex-row sm:justify-between mt-10">
+        <div className="bg-card rounded-lg border flex flex-col sm:flex-row sm:justify-between mt-10">
           <StatisticBar
             title="Desktop User"
             percentage="65%"

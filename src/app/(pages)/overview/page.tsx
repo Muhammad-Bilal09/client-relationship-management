@@ -11,18 +11,24 @@ export default function Page() {
     <>
       <div className="p-4">
         <Header />
-        <div className="flex flex-col md:flex-row gap-4 mb-5">
+
+        <div className="flex flex-col lg:flex-row gap-4 mb-5">
+       
           <div className="bg-card shadow-sm rounded-lg flex-1 p-4">
-            <div className="flex flex-col md:flex-row justify-between mb-4">
+            
+            <div className="flex flex-col md:flex-row justify-between gap-4 mb-4">
               <SalesCard color="blue" label="Product A " value="$27,733.00" />
               <SalesCard color="red" label="Product B " value="$27,733.00" />
               <SalesCard color="purple" label="Product C " value="$27,733.00" />
             </div>
-            <WeeklySalesChart />
+           
+            <div className="h-64 md:h-80 lg:h-96">
+              <WeeklySalesChart />
+            </div>
           </div>
 
           <div className="flex-1">
-            <div className="relative w-full lg:h-[400px]">
+            <div className="relative h-64 md:h-80 lg:h-[400px]">
               <Image
                 src={CountrySaleChart}
                 alt="Country Sales Chart"

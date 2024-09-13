@@ -45,18 +45,18 @@ export default function Table() {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row gap-6 p-4">
+    <div className="flex flex-col lg:flex-row gap-6">
       <div className="overflow-x-auto w-full">
         <table className="min-w-full divide-y divide-gray-200 shadow-md overflow-hidden sm:rounded-lg">
-          <thead className="bg-purple-500">
+          <thead className="bg-purple py-3 px-3">
             <tr className="text-left text-white uppercase">
-              <th className="py-3 px-6 text-xs font-medium">
+              <th className="py-3 px-3 text-xs font-medium">
                 <input type="checkbox" className="mx-1" />
                 Customer Name
               </th>
-              <th className="py-3 px-6 text-xs font-medium">Email</th>
-              <th className="py-3 px-6 text-xs font-medium">Status</th>
-              <th className="py-3 px-6 text-xs font-medium">Last Login</th>
+              <th className="py-3 px-3 text-xs font-medium">Email</th>
+              <th className="py-3 px-3 text-xs font-medium">Status</th>
+              <th className="py-3 px-3 text-xs font-medium">Last Login</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">

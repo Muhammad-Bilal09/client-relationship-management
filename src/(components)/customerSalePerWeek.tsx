@@ -230,7 +230,7 @@ const WeekScheduleMatrixChart: React.FC = () => {
 
   return (
     <div className="h-full w-full">
-      <div className="relative w-[600px] h-64">
+      <div className="relative lg:w-[600px] lg:h-64">
         <Chart type="matrix" data={data} options={options} />
       </div>
     </div>
