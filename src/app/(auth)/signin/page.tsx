@@ -1,11 +1,12 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { RootState } from "@/redux/store";
 import Google from "../../../../public/assets/images/google.png"
+
 import {
   setEmail,
   setPassword,
