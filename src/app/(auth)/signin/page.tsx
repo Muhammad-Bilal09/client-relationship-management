@@ -1,12 +1,11 @@
 "use client";
-import React, { useEffect } from "react";
+import React, from "react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { RootState } from "@/redux/store";
 import Google from "../../../../public/assets/images/google.png"
-import { FaGoogle } from "react-icons/fa";
 import {
   setEmail,
   setPassword,
@@ -20,7 +19,6 @@ const SignIn = () => {
   const { email, password, error, isLoading } = useSelector(
     (state: RootState) => state.auth
   );
-  const { data: session, status } = useSession();
   const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -172,7 +170,7 @@ const SignIn = () => {
                 htmlFor="remember-me"
                 className="ml-2 block text-sm text-gray-900"
               >
-                Already have an account?
+                Don't have an account?
                 <Link
                   href="signup"
                   className="font-medium text-indigo-600 hover:text-indigo-500"
