@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
 
 
   if (publicRoutes.includes(path) && token) {
-    return NextResponse.redirect(new URL('/', request.url)); 
+    return NextResponse.redirect(new URL('/dashboard', request.url)); 
   
   }
 

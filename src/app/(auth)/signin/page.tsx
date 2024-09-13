@@ -6,7 +6,7 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { RootState } from "@/redux/store";
 import Google from "../../../../public/assets/images/google.png"
-
+import { FaGoogle } from "react-icons/fa";
 import {
   setEmail,
   setPassword,
@@ -172,7 +172,7 @@ const SignIn = () => {
                 htmlFor="remember-me"
                 className="ml-2 block text-sm text-gray-900"
               >
-                Don't have an account?
+                Already have an account?
                 <Link
                   href="signup"
                   className="font-medium text-indigo-600 hover:text-indigo-500"
