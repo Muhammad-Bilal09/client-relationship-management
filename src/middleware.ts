@@ -1,35 +1,28 @@
-import { NextResponse, NextRequest } from 'next/server'
-
+import { NextResponse, NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const token = request.cookies.get("token")?.value || '';
 
-  const publicRoutes = ["/signin", "/signup", "/forgotPassword", "/resetPassword","/"];
-
-
-  if (publicRoutes.includes(path) && token) {
-    return NextResponse.redirect(new URL('/dashboard', request.url)); 
+  const publicRoutes = ["/signin", "/signup", "/forgotPassword", "/resetPassword"];
   
+  if (token && publicRoutes.includes(path)) {
+    return NextResponse.redirect(new URL('/', request.url));
   }
-
-
-  if (!publicRoutes.includes(path) && !token) {
+  if (!token && !publicRoutes.includes(path) && path !== '/') {
     return NextResponse.redirect(new URL('/signin', request.url));
   }
-
-  console.log(token)
 
   return NextResponse.next();
 }
 
 export const config = {
   matcher: [
-    '/',       
-    '/signin',       
+    '/', 
+    '/signin', 
     '/signup',       
-    '/forgotPassword',  
-    '/resetPassword',   
-    '/dashboard',      
-    '/home',            
+    '/forgotPassword',
+    '/resetPassword', 
+    '/dashboard',     
+    '/home',          
   ],
-}
+};
