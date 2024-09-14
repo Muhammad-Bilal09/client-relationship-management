@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 import { ForgotPasswordState } from "@/types/type";
+
 const initialState: ForgotPasswordState = {
   email: "",
   message: "",
@@ -7,26 +9,19 @@ const initialState: ForgotPasswordState = {
   isLoading: false,
 };
 
+
 export const sendResetEmail = createAsyncThunk(
   "forgotPassword/sendResetEmail",
   async (email: string, { rejectWithValue }) => {
     try {
-      const response = await fetch("/api/forgotpassword", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      if (!response.ok) {
-        const errorMessage = await response.text();
-        throw new Error(errorMessage);
-      }
+      const response = await axios.post("/api/forgotpassword", { email });
 
       return "Password reset email sent. Check your inbox.";
     } catch (error: any) {
-      return rejectWithValue(error.message || "Password reset failed");
+
+      const errorMessage =
+        error.response?.data?.message || "Password reset failed";
+      return rejectWithValue(errorMessage);
     }
   }
 );

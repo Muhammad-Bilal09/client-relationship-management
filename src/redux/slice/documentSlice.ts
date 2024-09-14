@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import { DocumentState,Document } from '@/types/type';
+import axios from 'axios';
+import { DocumentState, Document } from '@/types/type';
 
 const initialState: DocumentState = {
   documents: [],
@@ -8,22 +9,29 @@ const initialState: DocumentState = {
 };
 
 export const fetchDocuments = createAsyncThunk('documents/fetchDocuments', async () => {
-  const response = await fetch('/api/getDocument');
-  const data = await response.json();
-  if (!response.ok) throw new Error(data.error || 'Failed to fetch documents');
-  return data;
+  try {
+    const response = await axios.get('/api/getDocument');
+    return response.data; 
+  } catch (error: any) {
+    throw new Error(error.response?.data?.error || 'Failed to fetch documents');
+  }
 });
+
 export const createDocument = createAsyncThunk(
   'documents/createDocument',
   async ({ title, type, date, description, fileUrl }: Omit<Document, 'id'>) => {
-    const response = await fetch('/api/createDocuments', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title, type, date, description, fileUrl }),
-    });
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error || 'Failed to create document');
-    return data;
+    try {
+      const response = await axios.post('/api/createDocuments', {
+        title,
+        type,
+        date,
+        description,
+        fileUrl,
+      });
+      return response.data;
+    } catch (error: any) {
+      throw new Error(error.response?.data?.error || 'Failed to create document');
+    }
   }
 );
 

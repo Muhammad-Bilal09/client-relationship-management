@@ -1,19 +1,21 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 import { ItemsState } from '@/types/type';
-
 
 const initialState: ItemsState = {
   items: [],
   status: 'idle',
 };
 
-export const fetchItems = createAsyncThunk('api/getItem', async () => {
-  const response = await fetch('/api/getItem');
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
+
+export const fetchItems = createAsyncThunk('items/fetchItems', async () => {
+  try {
+    const response = await axios.get('/api/getItem');
+    return response.data; 
+  } catch (error: any) {
+ 
+    throw new Error(error.response?.data?.message || 'Failed to fetch items');
   }
-  const data = await response.json();
-  return data;
 });
 
 const itemsSlice = createSlice({
@@ -29,7 +31,7 @@ const itemsSlice = createSlice({
         state.status = 'idle';
         state.items = action.payload;
       })
-      .addCase(fetchItems.rejected, (state) => {
+      .addCase(fetchItems.rejected, (state, action) => {
         state.status = 'failed';
       });
   },

@@ -1,28 +1,27 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 import { AuthState } from '@/types/type';
-
 
 const initialState: AuthState = {
   email: '',
   password: '',
   error: '',
   isLoading: false,
-  isAuthenticated: true,  
+  isAuthenticated: true,
 };
-
 
 export const logoutUser = createAsyncThunk(
   'auth/logoutUser',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch('/api/logout', { method: 'POST' });
+      const response = await axios.post('/api/logout');
 
-      if (!response.ok) {
+      if (response.status !== 200) {
         throw new Error('Failed to log out');
       }
-      return true;  
+      return true;
     } catch (error: any) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response?.data?.message || error.message);
     }
   }
 );
@@ -43,7 +42,6 @@ const authSlice = createSlice({
     setIsLoading(state, action: PayloadAction<boolean>) {
       state.isLoading = action.payload;
     },
-
     resetAuthState(state) {
       state.email = '';
       state.password = '';
@@ -59,7 +57,7 @@ const authSlice = createSlice({
       .addCase(logoutUser.fulfilled, (state) => {
         state.isLoading = false;
         state.isAuthenticated = false;
-        state.email = '';  
+        state.email = '';
         state.password = '';
       })
       .addCase(logoutUser.rejected, (state, action: PayloadAction<any>) => {

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { Item } from "@/types/type";
-import { StoreState } from "@/types/type";
+import axios from "axios";
+import { Item, StoreState } from "@/types/type";
 
 const initialState: StoreState = {
   items: [],
@@ -12,12 +12,12 @@ const initialState: StoreState = {
 };
 
 export const fetchItems = createAsyncThunk("store/fetchItems", async () => {
-  const response = await fetch("/api/getItem");
-  if (!response.ok) {
-    throw new Error("Failed to fetch items");
+  try {
+    const response = await axios.get("/api/getItem");
+    return response.data as Item[];
+  } catch (error: any) {
+    throw new Error(error.response?.data?.message || "Failed to fetch items");
   }
-  const data: Item[] = await response.json();
-  return data;
 });
 
 const storeSlice = createSlice({
@@ -26,14 +26,14 @@ const storeSlice = createSlice({
   reducers: {
     setSelectedCategory: (state, action) => {
       state.selectedCategory = action.payload;
-      
+
       state.filteredItems =
         action.payload === null
           ? state.items
           : state.items.filter((item) => item.category === action.payload);
     },
     addToCart: (state, action) => {
-     
+      // Implement cart addition logic here
     },
   },
   extraReducers: (builder) => {

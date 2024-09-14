@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 import { ResetPasswordState } from "@/types/type";
 
 const initialState: ResetPasswordState = {
@@ -16,22 +17,15 @@ export const resetPassword = createAsyncThunk(
     { rejectWithValue }
   ) => {
     try {
-      const response = await fetch("/api/resetPassword", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ token, password }),
-      });
+      const response = await axios.post("/api/resetPassword", { token, password });
 
-      if (!response.ok) {
-        const message = await response.text();
-        throw new Error(message);
-      }
-
+    
       return "Password reset successfully";
     } catch (error: any) {
-      return rejectWithValue(error.message || "Password reset failed");
+
+      const errorMessage =
+        error.response?.data?.message || "Password reset failed";
+      return rejectWithValue(errorMessage);
     }
   }
 );
