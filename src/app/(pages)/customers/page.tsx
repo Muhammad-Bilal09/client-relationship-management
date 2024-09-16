@@ -16,13 +16,15 @@ export default function Page() {
 
   return (
     <>
-      <div>
-        <div className="flex flex-col md:flex-row justify-between">
-          <div>
-            <h1 className="font-bold text-xl">Customers</h1>
-          </div>
-          <div className="flex flex-col md:flex-row md:space-x-4 space-y-2 md:space-y-0 mt-4 md:mt-0">
-            <input type="date" className="bg-purple rounded-sm border-0" />
+      <div className="px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+        {/* Header Section */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+          <h1 className="font-bold text-xl md:text-2xl">Customers</h1>
+          <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 mt-4 sm:mt-0">
+            <input
+              type="date"
+              className="bg-purple rounded-sm border-0 px-2 py-1 text-sm sm:text-base"
+            />
             <UserProfile
               imageSrc={session?.user?.image || ""}
               userName={session?.user?.name || ""}
@@ -69,24 +71,29 @@ export default function Page() {
           />
         </div>
 
-        <div className="bg-card rounded-lg border flex flex-col sm:flex-row sm:justify-between mt-10">
+        <div className="bg-card rounded-lg border p-4 flex flex-col sm:flex-row sm:justify-between mt-10 space-y-4 sm:space-y-0">
           <StatisticBar
             title="Desktop User"
             percentage="65%"
             color="bg-blue-400"
-            width="300px"
+            width="100%" 
           />
           <StatisticBar
             title="Mobile User"
             percentage="35%"
             color="bg-green"
-            width="600px"
+            width="100%" 
           />
         </div>
 
-        <MapSection />
 
-        <Table />
+        <div className="mt-10">
+          <MapSection />
+        </div>
+
+        <div className="mt-10 overflow-x-auto">
+          <Table />
+        </div>
       </div>
     </>
   );

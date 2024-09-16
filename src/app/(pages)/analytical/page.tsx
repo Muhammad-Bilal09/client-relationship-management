@@ -43,7 +43,7 @@ const Page: React.FC = () => {
       <div className="flex justify-between items-center p-4">
         <h1 className="font-bold text-lg">Analytical</h1>
         <div className="flex items-center">
-          <input type="date" className="bg-gray-200 border rounded-sm p-2" />
+          <input type="date" className="bg-purple border rounded-sm p-2" />
           <img
             src={session?.user?.image || "https://via.placeholder.com/40"}
             alt="User Avatar"

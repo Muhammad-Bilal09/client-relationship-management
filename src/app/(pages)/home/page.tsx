@@ -16,7 +16,7 @@ export default function Dashboard() {
           <GraphsSection />
           <LineCharts />
         </div>
-        <div className="lg:w-1/3 space-y-4">
+        <div className="space-y-4">
           <BestSellingProducts />
         </div>
       </div>
