@@ -23,6 +23,8 @@ import Order from "../(pages)/orders/page";
 import Settings from "../(pages)/settings/page";
 import { IoStorefrontOutline } from "react-icons/io5";
 import { logoutUser } from "@/redux/slice/authSlice";
+import Footer from '@/(components)/footer/page'
+
 
 export default function Page() {
   const router = useRouter();
@@ -209,5 +211,7 @@ export default function Page() {
         {currentPage === "settings" && <Settings />}
       </div>
     </div>
-  );
+
+);
+<Footer/>
 }
