@@ -56,7 +56,7 @@ const CartSummary: React.FC = () => {
   };
 
   return (
-    <div className="lg:w-[426px] overflow-hidden shadow-md rounded-lg border-5 p-5">
+    <div className="lg:w-[100%] overflow-hidden shadow-md rounded-lg border-5 p-5">
       <div className="bg-purple text-white p-3 mb-5">
         <h1 className="text-center font-heading">Cart Total</h1>
       </div>
@@ -125,12 +125,6 @@ const CartSummary: React.FC = () => {
           <h2 className="text-xl flex justify-between my-5">
             <span>Total</span> ${calculateTotal()}
           </h2>
-          <button
-            onClick={handleProceedToCheckout}
-            className="flex justify-center text-xl rounded-lg border border-black font-heading w-full h-10 bg-purple text-white"
-          >
-            Proceed to Checkout
-          </button>
         </div>
       </div>
     </div>

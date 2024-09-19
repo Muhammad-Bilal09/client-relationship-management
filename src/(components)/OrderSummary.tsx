@@ -23,15 +23,15 @@ const OrderSummary: React.FC = () => {
     dispatch(fetchOrders());
   }, [dispatch]);
 
-
   return (
     <>
-      {orderDetails && orderDetails?.length > 0 ? (
+      {orderDetails && orderDetails.length > 0 ? (
         <div className="mt-10 px-2 lg:px-10">
           <h2 className="text-2xl md:text-3xl font-heading text-center mb-5">
             Order Summary
           </h2>
-          <div className="overflow-x-auto">
+          {/* Make the container scrollable for smaller screens */}
+          <div className="w-full overflow-x-auto">
             <table className="min-w-full divide-y border-1 divide-gray-200">
               <thead>
                 <tr className="bg-purple text-white">
@@ -43,7 +43,7 @@ const OrderSummary: React.FC = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
-                {orderDetails?.map((order: any) => (
+                {orderDetails.map((order: any) => (
                   <tr key={order.id} className="text-sm">
                     <td className="px-4 py-2 whitespace-nowrap">
                       <div className="flex space-x-2">

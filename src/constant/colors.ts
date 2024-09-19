@@ -5,6 +5,7 @@ const colors = {
     offline:"#E3E3E3",
     card:"#FFFFFF",
     green:"#62912C",
+    Red:"#ED4D5C"
   };
   
   export default colors;

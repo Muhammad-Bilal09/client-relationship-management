@@ -13,7 +13,7 @@ const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <div
-      className={`flex items-center justify-center  gap-4 rounded-lg ${backgroundColor} border lg:w-60 lg:h-32 p-4`}
+      className={`flex items-center justify-center  gap-4 rounded-lg ${backgroundColor} border lg:w-[100%] lg:h-32 p-4`}
     >
       <div className={`bg-${iconbg} rounded-full p-2`}>
         <BsPeople className={`text-${iconColor}`} />

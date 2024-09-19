@@ -11,7 +11,7 @@ export default function Dashboard() {
   return (
     <>
       <UserHeader />
-      <div className="p-4 flex flex-col space-y-4 lg:space-y-0 lg:flex-row lg:space-x-5">
+      <div className=" flex flex-col space-y-4 lg:space-y-0 lg:flex-row lg:space-x-5">
         <div className="flex-1 lg:w-2/3 space-y-4">
           <GraphsSection />
           <LineCharts />
@@ -20,7 +20,7 @@ export default function Dashboard() {
           <BestSellingProducts />
         </div>
       </div>
-      <div className="p-4 flex flex-col space-y-4 lg:space-y-0 lg:flex-row lg:space-x-5">
+      <div className=" flex flex-col space-y-4 lg:space-y-0 lg:flex-row lg:space-x-5">
         <div className="flex-1 lg:w-2/3">
           <Table />
         </div>

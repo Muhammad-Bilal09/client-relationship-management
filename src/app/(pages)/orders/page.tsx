@@ -15,7 +15,7 @@ const CartPage: React.FC = () => {
           <CartSummary />
         </div>
       </div>
-      <div className="mt-5 lg:mt-10">
+      <div className="mt-5 lg:mt-10 w-full lg:w-[900px]">
         <OrderSummary />
       </div>
     </div>

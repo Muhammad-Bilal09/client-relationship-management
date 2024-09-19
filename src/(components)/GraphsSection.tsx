@@ -25,7 +25,7 @@ export default function GraphsSection() {
 
   return (
     <div className="flex flex-col lg:flex-row mt-10 space-y-4 lg:space-y-0 lg:space-x-4">
-      <div className="w-full lg:w-40 h-auto lg:h-60 bg-gradient-to-b from-[#9A55FF] to-[57.79%] to-[#D355FF] p-2 rounded-lg">
+      <div className="w-full lg:w-[160px] h-auto lg:h-60 bg-gradient-to-b from-[#9A55FF] to-[57.79%] to-[#D355FF] p-2 rounded-lg">
         <div className="flex justify-center w-full h-36">
           <PieComponent orderDetails={orderDetails} />
         </div>
@@ -34,7 +34,7 @@ export default function GraphsSection() {
           <p className="font-bold text-white">Target Order</p>
         </div>
       </div>
-      <div className="w-full border lg:w-[561px]  h-auto lg:h-60 p-2 rounded-lg flex flex-col lg:flex-row bg-card">
+      <div className="w-full border lg:w-[100%]  h-auto lg:h-60 p-2 rounded-lg flex flex-col lg:flex-row bg-card">
         <div className="">
           <p className="mb-3">Monthly Income</p>
           <div className="flex justify-between items-center">

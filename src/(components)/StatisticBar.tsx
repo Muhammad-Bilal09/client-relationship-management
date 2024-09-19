@@ -10,7 +10,7 @@ const StatisticBar: React.FC<StatisticBarProps> = ({
     <div className="flex flex-col items-center mb-4 sm:mb-0">
       <p className="text-gray-400">{title}</p>
       <span>{percentage}</span>
-      <div className={`w-full lg:w-[600px] h-10 ${color} mt-2`}></div>
+      <div className={`w-full lg:w-[100%] h-10 ${color} mt-2`}></div>
     </div>
   );
 };

@@ -64,7 +64,7 @@ export default function Page() {
             valueColor="black"
             color="gray"
             iconColor="white"
-            iconbg="red-400"
+            iconbg="Red"
             backgroundColor="bg-card"
             title="Non Members"
             value="834"
