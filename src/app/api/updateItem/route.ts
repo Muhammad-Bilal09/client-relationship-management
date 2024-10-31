@@ -26,7 +26,7 @@ export const PUT = async (request: NextRequest) => {
     });
 
     return new NextResponse(JSON.stringify(updatedItem), { status: 200 });
-  } catch (error: any) {
+  } catch (error) {
     return new NextResponse("Failed to update item", { status: 500 });
   }
 };

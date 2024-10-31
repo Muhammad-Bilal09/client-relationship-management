@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/config/prisma";
+import { DailyTotal } from "@/types/type";
 
 export async function GET() {
   try {
@@ -13,7 +14,7 @@ export async function GET() {
       },
     });
 
-    const dailyTotals = results?.map((item: any) => ({
+    const dailyTotals = results?.map((item: DailyTotal) => ({
       date: item?.date,
       total: item?._sum?.total,
     }));

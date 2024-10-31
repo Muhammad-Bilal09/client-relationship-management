@@ -29,8 +29,8 @@ export const POST = async (request: NextRequest) => {
 
     const imageUrl = (uploadResponse as any)?.secure_url;
     return new NextResponse(JSON.stringify({ imageUrl }), { status: 200 });
-  } catch (error: any) {
-    return new NextResponse(`Image upload failed: ${error.message}`, {
+  } catch (error) {
+    return new NextResponse(`Image upload failed`, {
       status: 500,
     });
   }

@@ -29,7 +29,7 @@ export const POST = async (request: NextRequest) => {
       },
     });
     return new NextResponse("User registered successfully", { status: 201 });
-  } catch (error: any) {
+  } catch (error) {
     return new NextResponse("User registration failed", { status: 500 });
   }
 };

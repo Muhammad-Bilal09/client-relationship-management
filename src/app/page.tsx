@@ -1,12 +1,12 @@
 "use client";
 import React, { useEffect } from "react";
-import { useSession, signIn } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/app/dashboard/page";
 import Footer from "@/(components)/footer/page";
 
 export default function Page() {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const router = useRouter();
 
   useEffect(() => {

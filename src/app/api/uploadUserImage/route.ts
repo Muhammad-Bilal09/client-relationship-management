@@ -27,8 +27,8 @@ export const POST = async (request: NextRequest) => {
     });
 
     return new NextResponse(JSON.stringify({ imageUrl }), { status: 200 });
-  } catch (error: any) {
-    return new NextResponse(`Error uploading image: ${error.message}`, {
+  } catch (error) {
+    return new NextResponse(`Error uploading image`, {
       status: 500,
     });
   } finally {

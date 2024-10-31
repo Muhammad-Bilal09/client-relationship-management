@@ -6,6 +6,8 @@ import InputField from "@/(components)/InputField";
 import FileInputField from "@/(components)/FileInputField";
 import Modal from "@/(components)/DocumentModal ";
 import { useDocumentForm } from "./useDocument";
+import { Document } from "@/types/type";
+import { documentFormFields } from "@/constant/Constant";
 
 export default function CreateDocumentPage() {
   const { documents, loading, error } = useSelector(
@@ -29,13 +31,6 @@ export default function CreateDocumentPage() {
     setIsModalOpen(false);
     resetForm();
   };
-
-  const formFields = [
-    { label: "Title", name: "title", type: "text" },
-    { label: "Type", name: "type", type: "text" },
-    { label: "Date", name: "date", type: "date" },
-    { label: "Description", name: "description", type: "textarea" },
-  ];
 
   return (
     <div className="container mx-auto p-4 sm:p-2 md:p-4 lg:p-8">
@@ -78,7 +73,7 @@ export default function CreateDocumentPage() {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {documents?.map((document: any) => (
+                {documents?.map((document: Document) => (
                   <tr key={document?.id} className="text-gray-600">
                     <td className="py-4 px-6">{document?.title}</td>
                     <td className="py-4 px-6">{document?.type}</td>
@@ -109,7 +104,7 @@ export default function CreateDocumentPage() {
           Create Document
         </h2>
         <form onSubmit={handleSubmit}>
-          {formFields?.map(({ label, name, type }) => (
+          {documentFormFields?.map(({ label, name, type }) => (
             <InputField
               key={name}
               label={label}

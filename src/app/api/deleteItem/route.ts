@@ -14,7 +14,7 @@ export const DELETE = async (request: NextRequest) => {
     });
 
     return new NextResponse("Item deleted successfully", { status: 200 });
-  } catch (error: any) {
+  } catch (error) {
     return new NextResponse("Failed to delete item", { status: 500 });
   }
 };

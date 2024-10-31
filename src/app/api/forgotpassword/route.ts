@@ -43,8 +43,8 @@ export async function POST(request: NextRequest) {
     });
 
     return new NextResponse("Password reset email sent", { status: 200 });
-  } catch (error: any) {
-    return new NextResponse(`Internal Server Error: ${error.message}`, {
+  } catch (error) {
+    return new NextResponse(`Internal Server Error`, {
       status: 500,
     });
   }

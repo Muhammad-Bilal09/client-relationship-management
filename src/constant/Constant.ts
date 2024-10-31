@@ -9,3 +9,22 @@ export const products = [
   { src: Bowl3, name: "Ceramic Bowl", price: "$29" },
   { src: Bowl4, name: "Ceramic Bowl", price: "$29" },
 ];
+
+export const documentFormFields = [
+  { label: "Title", name: "title", type: "text" },
+  { label: "Type", name: "type", type: "text" },
+  { label: "Date", name: "date", type: "date" },
+  { label: "Description", name: "description", type: "textarea" },
+];
+
+export const formFields = [
+  { label: "Name", name: "name", type: "text" },
+  { label: "Quantity", name: "quantity", type: "number" },
+  { label: "Price", name: "price", type: "number", step: "0.01" },
+  {
+    label: "Purchasing Price",
+    name: "purchasingPrice",
+    type: "number",
+    step: "0.01",
+  },
+];

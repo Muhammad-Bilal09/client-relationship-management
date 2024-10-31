@@ -26,8 +26,8 @@ export const POST = async (request: NextRequest) => {
       },
     });
     return new NextResponse("Item added successfully", { status: 200 });
-  } catch (error: any) {
-    return new NextResponse(`Failed to create item: ${error.message}`, {
+  } catch (error) {
+    return new NextResponse(`Failed to create item`, {
       status: 500,
     });
   }

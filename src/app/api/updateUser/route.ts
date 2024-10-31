@@ -26,7 +26,7 @@ export const POST = async (request: NextRequest) => {
       data: updateData,
     });
     return new NextResponse(JSON.stringify(updatedUser), { status: 200 });
-  } catch (error: any) {
+  } catch (error) {
     return new NextResponse("Failed to update user", { status: 500 });
   }
 };

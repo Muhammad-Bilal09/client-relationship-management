@@ -36,8 +36,8 @@ export const POST = async (request: NextRequest) => {
       }),
       { status: 200 }
     );
-  } catch (error: any) {
-    return new NextResponse(`Failed to create order: ${error.message}`, {
+  } catch (error) {
+    return new NextResponse(`Failed to create order`, {
       status: 500,
     });
   }

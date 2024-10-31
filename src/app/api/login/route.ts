@@ -27,7 +27,7 @@ export const POST = async (request: NextRequest) => {
     }
 
     return new NextResponse("Login successful", { status: 200 });
-  } catch (error: any) {
+  } catch (error) {
     return new NextResponse("Login failed", { status: 500 });
   }
 };

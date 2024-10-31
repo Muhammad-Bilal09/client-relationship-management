@@ -38,8 +38,8 @@ export async function POST(request: NextRequest) {
     await prisma?.resetToken?.delete({ where: { token } });
 
     return new NextResponse("Password successfully reset", { status: 200 });
-  } catch (error: any) {
-    return new NextResponse(`Internal Server Error: ${error.message}`, {
+  } catch (error) {
+    return new NextResponse(`Internal Server Error`, {
       status: 500,
     });
   }

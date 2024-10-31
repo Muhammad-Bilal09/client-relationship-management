@@ -183,8 +183,6 @@ export type ModalProps = {
 
 export type CartStates = {
   items: CartItem[];
-  // status: "idle" | "loading" | "succeeded" | "failed";
-  // error: string | null;
 };
 
 export type ChartState = {
@@ -295,4 +293,10 @@ export type UserState = {
   totalCustomers: number;
   error: string;
   isLoading: boolean;
+};
+export type DailyTotal = {
+  date: string;
+  _sum: {
+    total: number | null;
+  };
 };
